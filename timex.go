@@ -48,6 +48,9 @@ func AtBeginningOfWeek(target time.Time) time.Time {
 	if dow == time.Sunday {
 		return AtBeginningOfDay(target).Add(-6 * Day)
 	}
+	if dow == time.Monday {
+		return AtBeginningOfDay(target)
+	}
 	return AtBeginningOfDay(target).AddDate(0, 0, -int(dow-time.Sunday)-1)
 }
 
